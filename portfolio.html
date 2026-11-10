@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name Portfolio</title>
+<meta name="description" content="Portfolio of Your Name.">
+<style>
+:root{--bg:#f6f7f4;--surface:#ffffff;--text:#1b2421;--muted:#5d6b66;--line:#d9dfdb;--accent:#0f7b6c;--accent2:#c2410c;color-scheme:light}
+:root[data-theme="dark"]{--bg:#0f1715;--surface:#16211e;--text:#e8efec;--muted:#93a39d;--line:#27363256;--accent:#3dd6bd;--accent2:#fb923c;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 "Segoe UI",system-ui,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.15;margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:18px;height:58px}
+nav .logo{font:700 22px Georgia,serif;text-decoration:none;color:var(--text);margin-right:auto}
+nav a.l{color:var(--muted);text-decoration:none;font-size:15px}
+nav a.l:hover{color:var(--accent)}
+button{font:inherit;cursor:pointer}
+.ghost{background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 12px;font-size:14px}
+.btn{display:inline-block;padding:11px 20px;border-radius:8px;text-decoration:none;font-weight:600;border:1px solid var(--accent)}
+.btn.p{background:var(--accent);color:var(--bg)}
+.btn.s{color:var(--accent)}
+.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center}
+.hero h1{font-size:clamp(36px,6vw,58px);margin-bottom:14px}
+.hero p{color:var(--muted);max-width:46ch;margin:0 0 24px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.typer{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;min-height:250px}
+.typer .lead{color:var(--muted);font-size:15px;margin:0 0 10px}
+.typer .line{font:700 clamp(24px,3.6vw,32px)/1.2 Georgia,"Times New Roman",serif;min-height:2.4em;color:var(--accent)}
+.caret{display:inline-block;width:3px;height:1em;background:var(--accent2);margin-left:3px;vertical-align:-.12em;animation:blink 1s steps(1) infinite}
+.typer .note{color:var(--muted);font-size:15.5px;margin:14px 0 0;min-height:3.4em}
+.typer ul{margin:0;padding-left:20px}.typer li{margin-bottom:12px}.typer li strong{color:var(--accent)}
+.ctrl{display:flex;align-items:center;gap:14px;margin-top:18px}
+.ctrl .ghost{width:38px;height:34px;padding:0;font-size:18px;line-height:1}
+.ctrl .ghost:hover{border-color:var(--accent);color:var(--accent)}
+.dots{display:flex;gap:8px}
+.dots span{width:28px;height:4px;border-radius:2px;background:var(--line)}
+.dots span.on{background:var(--accent)}
+@keyframes blink{50%{opacity:0}}
+section{padding:56px 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:34px;margin-bottom:24px}
+.about{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:start}
+.avatar{width:200px;height:200px;border-radius:50%;object-fit:cover;background:var(--line)}
+.about p{margin:0 0 14px;max-width:62ch}
+.tabs{display:flex;gap:8px;margin-bottom:20px}
+.tabs button{background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 16px}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--line)}
+.tl li{position:relative;margin-bottom:24px}
+.tl li::before{content:"";position:absolute;left:-29px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.tl .when{color:var(--muted);font-size:14px}
+.tl h3{font-size:20px}
+.tl p{margin:4px 0 0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;text-align:left;color:var(--text);width:100%}
+.card h3{font-size:21px;margin-bottom:6px}
+.card p{margin:0 0 12px;color:var(--muted);font-size:15.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:13px;border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--muted)}
+button.card:hover{border-color:var(--accent)}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px}
+.sk h3{font-size:20px;margin-bottom:12px}
+.meter{margin-bottom:12px;font-size:15px}
+.meter div.t{height:6px;background:var(--line);border-radius:3px;margin-top:4px}
+.meter div.f{height:100%;background:var(--accent);border-radius:3px}
+.sk ul{margin:0;padding-left:20px;color:var(--muted)}
+.contact p{max-width:56ch;color:var(--muted)}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+footer{padding:28px 0;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--text);max-width:560px;width:calc(100% - 32px);padding:26px}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+dialog h3{font-size:26px;margin-bottom:10px}
+@media(max-width:760px){.hero,.about{grid-template-columns:1fr}.avatar{width:140px;height:140px}nav a.l{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top" id="logo"></a>
+  <a class="l" href="#about">About</a><a class="l" href="#journey">Journey</a><a class="l" href="#projects">Projects</a><a class="l" href="#skills">Skills</a><a class="l" href="#contact">Contact</a>
+  <button class="ghost" id="theme" aria-label="Toggle theme">◐ Theme</button>
+</div></nav>
+
+<main id="top">
+<div class="wrap hero">
+  <div>
+    <h1 id="heroName"></h1>
+    <p id="heroTag"></p>
+    <div class="cta"><a class="btn p" href="#projects">View my projects</a><a class="btn s" href="#contact">Get in touch</a></div>
+  </div>
+  <div class="typer" id="typer">
+    <p class="lead">I'm interested in</p>
+    <div class="line"><span id="typed"></span><span class="caret" aria-hidden="true"></span></div>
+    <p class="note" id="typeNote"></p>
+    <div class="ctrl" id="ctrl"><button class="ghost" id="prev" aria-label="Previous interest">&lt;</button><div class="dots" id="dots" aria-hidden="true"></div><button class="ghost" id="next" aria-label="Next interest">&gt;</button></div>
+  </div>
+</div>
+
+<section id="about"><div class="wrap"><h2>About me</h2>
+  <div class="about"><img class="avatar" id="photo" alt="Portrait"><div id="aboutText"></div></div>
+</div></section>
+
+<section id="journey"><div class="wrap"><h2>My journey</h2>
+  <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="education">Education</button><button role="tab" aria-selected="false" data-t="experience">Experience</button></div>
+  <ul class="tl" id="tl"></ul>
+</div></section>
+
+<section id="projects"><div class="wrap"><h2>Projects</h2><div class="grid" id="projGrid"></div></div></section>
+
+<section id="skills"><div class="wrap"><h2>Skills</h2>
+  <div class="sk">
+    <div><h3>Core skills</h3><div id="core"></div></div>
+    <div><h3>Currently learning</h3><ul id="learning"></ul></div>
+    <div><h3>Languages</h3><ul id="langs"></ul></div>
+  </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap"><h2>Contact</h2>
+  <p id="contactText"></p><div class="links" id="links"></div>
+</div></section>
+</main>
+<footer><div class="wrap" id="foot"></div></footer>
+
+<dialog id="dlg"><h3 id="dT"></h3><p id="dD"></p><div class="tags" id="dTags"></div><p id="dL"></p><button class="ghost" id="dClose">Close ✕</button></dialog>
+
+<script>
+/* =====================================================
+   EDIT THIS BLOCK ONLY. Replace every value with yours.
+   ===================================================== */
+const ME = {
+  name: "Your Name",
+  short: "Name",                       // shown in the nav logo
+  tagline: "Your course or job title and what you want to do. Example: Computer Science student and aspiring web developer.",
+  photo: "",                           // path or URL, e.g. "me.jpg". Leave empty for a grey circle.
+  interests: [
+    { text: "Data Analytics & Statistical Analysis", note: "Turning raw data into clear, evidence-based answers." },
+    { text: "Operations Research", note: "Finding the best decision under real-world constraints." },
+    { text: "Cryptography", note: "How mathematics keeps information secret and verifiable." }
+  ],
+  about: [
+    "Write two or three short paragraphs about who you are.",
+    "Mention what you study or do, what you enjoy, and what you are working toward."
+  ],
+  education: [
+    { when: "2023 – Present", title: "Your degree or programme", place: "Your university or school", note: "Optional: CGPA, focus area, achievements." },
+    { when: "2021 – 2023", title: "diploma", place: "Your college", note: "" }
+  ],
+  experience: [
+    { when: "2025", title: "Role or internship", place: "Organisation", note: "One line on what you did and what you learned." }
+  ],
+  projects: [
+  { title: "Project one",   image: "project1.jpg", summary: "...", details: "...", tags: ["Python"], link: "" },
+  { title: "Project two",   image: "project2.jpg", summary: "...", details: "...", tags: ["Excel"],  link: "" },
+  { title: "Project three", image: "project3.jpg", summary: "...", details: "...", tags: ["R"],      link: "" }
+],
+  core: [ ["Skill one", 80], ["Skill two", 70], ["Skill three", 60] ],   // [name, level 0–100]
+  learning: ["Something you are learning", "Another topic"],
+  languages: ["English", "Bahasa Melayu"],
+  contactText: "Open to internships, projects and collaborations. The fastest way to reach me is email.",
+  links: [
+    { label: "Email me", href: "mailto:you@example.com" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/your-id" },
+    { label: "GitHub", href: "https://github.com/your-id" }
+  ]
+};
+/* ================== END OF EDIT BLOCK ================== */
+
+const $ = s => document.querySelector(s);
+const el = (t, c, h) => { const e = document.createElement(t); if (c) e.className = c; if (h != null) e.textContent = h; return e; };
+
+document.title = ME.name + " Portfolio";
+$("#logo").textContent = ME.short + ".";
+$("#heroName").textContent = ME.name;
+$("#heroTag").textContent = ME.tagline;
+if (ME.photo) $("#photo").src = ME.photo; else $("#photo").removeAttribute("src");
+ME.about.forEach(p => $("#aboutText").appendChild(el("p", "", p)));
+$("#contactText").textContent = ME.contactText;
+ME.links.forEach(l => { const a = el("a", "btn s", l.label); a.href = l.href; if (!l.href.startsWith("mailto")) { a.target = "_blank"; a.rel = "noopener"; } $("#links").appendChild(a); });
+ME.learning.forEach(x => $("#learning").appendChild(el("li", "", x)));
+ME.languages.forEach(x => $("#langs").appendChild(el("li", "", x)));
+ME.core.forEach(([n, v]) => {
+  const m = el("div", "meter"); m.appendChild(el("span", "", n));
+  const t = el("div", "t"), f = el("div", "f"); f.style.width = v + "%"; t.appendChild(f); m.appendChild(t); $("#core").appendChild(m);
+});
+$("#foot").textContent = "© " + new Date().getFullYear() + " " + ME.name;
+
+/* Journey tabs */
+function showTab(k) {
+  const tl = $("#tl"); tl.innerHTML = "";
+  ME[k].forEach(i => {
+    const li = el("li"); li.appendChild(el("div", "when", i.when)); li.appendChild(el("h3", "", i.title));
+    li.appendChild(el("div", "when", i.place)); if (i.note) li.appendChild(el("p", "", i.note)); tl.appendChild(li);
+  });
+}
+document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".tabs button").forEach(x => x.setAttribute("aria-selected", x === b));
+  showTab(b.dataset.t);
+});
+showTab("education");
+
+/* Projects + modal */
+const dlg = $("#dlg");
+ME.projects.forEach(p => {
+  const c = el("button", "card"); c.appendChild(el("h3", "", p.title)); c.appendChild(el("p", "", p.summary));
+  const tg = el("div", "tags"); p.tags.forEach(t => tg.appendChild(el("span", "tag", t))); c.appendChild(tg);
+  c.onclick = () => {
+    $("#dT").textContent = p.title; $("#dD").textContent = p.details;
+    const dt = $("#dTags"); dt.innerHTML = ""; p.tags.forEach(t => dt.appendChild(el("span", "tag", t)));
+    const dl = $("#dL"); dl.innerHTML = "";
+    if (p.link) { const a = el("a", "", "Open project"); a.href = p.link; a.target = "_blank"; a.rel = "noopener"; dl.appendChild(a); }
+    dlg.showModal();
+  };
+  $("#projGrid").appendChild(c);
+});
+$("#dClose").onclick = () => dlg.close();
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+
+/* Theme */
+const root = document.documentElement;
+try { const s = localStorage.getItem("theme"); if (s) root.dataset.theme = s; } catch (e) {}
+$("#theme").onclick = () => {
+  const n = root.dataset.theme === "dark" ? "light" : "dark"; root.dataset.theme = n;
+  try { localStorage.setItem("theme", n); } catch (e) {}
+};
+
+/* Typing effect with previous / next */
+const tEl = $("#typed"), nEl = $("#typeNote"), dots = $("#dots"), N = ME.interests.length;
+if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const box = $("#typer"); box.querySelector(".line").remove(); nEl.remove(); $("#ctrl").remove();
+  const ul = document.createElement("ul");
+  ME.interests.forEach(i => { const li = el("li"); li.appendChild(el("strong", "", i.text)); li.appendChild(el("div", "", i.note)); ul.appendChild(li); });
+  box.appendChild(ul);
+} else {
+  ME.interests.forEach(() => dots.appendChild(document.createElement("span")));
+  let ti = 0, timer = 0;
+  const run = () => {
+    const it = ME.interests[ti]; let i = 0;
+    tEl.textContent = ""; nEl.textContent = "";
+    [...dots.children].forEach((d, k) => d.classList.toggle("on", k === ti));
+    const add = () => { i++; tEl.textContent = it.text.slice(0, i);
+      if (i < it.text.length) timer = setTimeout(add, 65); else { nEl.textContent = it.note; timer = setTimeout(del, 4000); } };
+    const del = () => { nEl.textContent = ""; i--; tEl.textContent = it.text.slice(0, i);
+      if (i > 0) timer = setTimeout(del, 25); else { ti = (ti + 1) % N; timer = setTimeout(run, 300); } };
+    add();
+  };
+  const go = n => { clearTimeout(timer); ti = (n + N) % N; run(); };
+  $("#prev").onclick = () => go(ti - 1);
+  $("#next").onclick = () => go(ti + 1);
+  run();
+}
+</script>
+</body>
+</html>
